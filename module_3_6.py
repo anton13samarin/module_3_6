@@ -7,7 +7,7 @@ data_structure = [
 ]
 
 
-def calculate_structure_sum_improved(data):
+def calculate_structure_sum(data):
     total_sum = 0
     for item in data:
         if isinstance(item, int):
@@ -15,10 +15,10 @@ def calculate_structure_sum_improved(data):
         elif isinstance(item, str):
             total_sum += len(item)
         elif isinstance(item, (list, tuple, set)):
-            total_sum += calculate_structure_sum_improved(item)
+            total_sum += calculate_structure_sum(item)
         elif isinstance(item, dict):
-            total_sum += calculate_structure_sum_improved(list(item.keys()) + list(item.values()))
+            total_sum += calculate_structure_sum(list(item.keys()) + list(item.values()))
     return total_sum
 
-result = calculate_structure_sum_improved(data_structure)
+result = calculate_structure_sum(data_structure)
 print(result)
